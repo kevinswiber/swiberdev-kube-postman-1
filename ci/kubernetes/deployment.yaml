@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jsonplaceholder
+  labels:
+    app: jsonplaceholder
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jsonplaceholder
+  template:
+    metadata:
+      labels:
+        app: jsonplaceholder
+    spec:
+      containers:
+        - name: app
+          image: svenwal/jsonplaceholder
+          ports:
+            - containerPort: 3000
